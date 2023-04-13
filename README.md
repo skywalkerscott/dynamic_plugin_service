@@ -14,9 +14,14 @@
 
 ```json
 {
-    "plugin":"plugin1", //插件名称
-    "method":"run_plugin", //插件调用入口方法
-    "data":123 //入口参数
+  "plugin": "plugin1",
+  "method": "run_plugin",
+  "data": 123
 }
 ```
 
+参数说明：
+
+- plugin：插件名称
+- method：插件调用入口方法
+- data：入口参数
