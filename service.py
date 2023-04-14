@@ -39,10 +39,10 @@ def raw_data_handler():
             continue
         # 3.通过插件解析规则判断数据是否满足要求，对满足要求的数据进行处理
         func = getattr(plugin_module, 'check_data')
-        if not func(request):
+        if not func():
             continue
         run_plugin = getattr(plugin_module, 'run_plugin')
-        return run_plugin(request)
+        return run_plugin()
     return {}
 
 

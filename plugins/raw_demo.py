@@ -8,7 +8,7 @@ validated_keys = {'a', 'b', 'c'}
 
 
 # 插件校验数据函数
-def check_data(*args):
+def check_data():
     data = request.get_json()
     keys = data.keys()
     if validated_keys.difference(set(keys)):
@@ -17,7 +17,7 @@ def check_data(*args):
 
 
 # 插件入口执行函数
-def run_plugin(*args):
+def run_plugin():
     # 实现插件逻辑
     return {
         'status': 'success',
