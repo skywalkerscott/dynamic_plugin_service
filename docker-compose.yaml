@@ -1,0 +1,12 @@
+# yaml 配置
+version: '3'
+services:
+  dynamic_plugin_service:
+    build: .
+    ports:
+      - "5050:5000"
+    volumes:
+      #  宿主机：容器内  将容器内的/var/log/hyb
+      - ~/logs:/opt/dynamic_plugin_service/logs
+      - ~/plugins:/opt/dynamic_plugin_service/plugins
+    restart: unless-stopped
