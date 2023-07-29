@@ -1,4 +1,4 @@
-FROM python:3.6.15-slim-buster
+FROM python:3.11.3-slim-buster
 ENV LANG=C.UTF-8 TZ=Asia/Shanghai
 ENV FLASK_APP service.py
 ENV FLASK_RUN_HOST 0.0.0.0

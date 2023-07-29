@@ -2,6 +2,7 @@
 version: '3'
 services:
   dynamic_plugin_service:
+    container_name: dps
     build: .
     ports:
       - "5050:5000"

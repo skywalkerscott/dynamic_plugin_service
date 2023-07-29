@@ -33,6 +33,7 @@ def raw_data_handler():
         plugin_name = file.split('.py')[0]
         plugin_path = f'{plugins_folder}.{plugin_name}'
         plugin_module = importlib.import_module(plugin_path)
+        importlib.reload(plugin_module)
         match_type = plugin_module.match_type
         # 2.根据原始数据类型匹配插件
         if not match_type == content_type:
@@ -46,7 +47,7 @@ def raw_data_handler():
     return {}
 
 
-@app.route("/plugin/service", methods=["POST", 'get'])
+@app.route("/plugin/service", methods=["POST", 'GET'])
 def plugins():
     rsp = {
         'status': 'success',
@@ -84,13 +85,15 @@ def plugins():
         return jsonify(rsp)
 
 
-@app.route("/raw/service", methods=["POST", 'get'])
+@app.route("/raw/service", methods=["POST", 'GET'])
 def raw():
     rsp = dict()
     rq_method = request.method
     if rq_method == 'GET':
         pass
     else:
+        logger.info(request.content_type)
+        logger.info(request.data)
         rsp = raw_data_handler()
         # rsp = {'content_type': request.content_type}
     return jsonify(rsp)
